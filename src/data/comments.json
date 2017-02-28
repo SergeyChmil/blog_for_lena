@@ -1,0 +1,37 @@
+{
+  "notes": [
+    {
+      "id": 0,
+      "header": "Here is header",
+      "date": "some date",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla, lectus vitae cursus malesuada, tellus libero sodales elit, aliquet interdum libero augue sit amet ligula. Cras vulputate congue tincidunt. Sed ut tortor arcu. Praesent erat sem, dapibus vel semper ut, vehicula vitae tellus. Vivamus ut massa et tellus venenatis faucibus. Nulla congue commodo nisl, in viverra lacus semper a. Phasellus pharetra neque elit, vel egestas eros dapibus vitae. Maecenas sed semper lorem. Fusce aliquet tristique purus ac gravida. Sed id dui ut metus fermentum aliquam et vel nulla. Morbi viverra, quam a consequat semper, justo leo tristique massa, non dictum mauris dui sed arcu. In rhoncus est urna, posuere sollicitudin turpis ultrices quis. Curabitur et maximus est, in pellentesque mauris. Nam at augue libero. Aenean sed placerat nisl. Etiam volutpat dui vel nibh venenatis pretium. Aenean fermentum eros orci, nec molestie quam faucibus eget. Quisque id mattis quam. In consequat sodales augue, sit amet placerat mauris mattis a. Donec tristique nibh eu lectus finibus sollicitudin. Sed id pretium leo. Nunc tempor rhoncus diam in elementum. Ut ut felis at tortor rutrum cursus. Morbi tincidunt quam ac efficitur blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id vulputate metus, a hendrerit tellus. Phasellus vehicula erat magna, ut gravida quam pellentesque a. Vestibulum eget auctor mauris, a pharetra turpis. Cras ornare turpis vitae nisl porttitor scelerisque. In venenatis neque vitae leo consectetur, non bibendum dolor fringilla. Praesent tincidunt nec dolor in consectetur. Nulla pharetra efficitur justo vitae mattis. Proin euismod convallis metus nec pulvinar. Fusce semper ante in dolor imperdiet convallis. Cras eget mauris eget dui pretium imperdiet. Donec vel ornare urna, eu convallis erat. Suspendisse felis turpis, sollicitudin ut posuere at, sollicitudin id nunc. Vivamus ac tempor augue. In eget orci tincidunt neque mattis egestas vitae nec dolor. Nullam non euismod urna. Praesent sed lacus dui. Curabitur euismod sed nisl nec placerat. Phasellus tincidunt pellentesque dolor. Vivamus sed rhoncus tellus, et laoreet lorem.",
+      "form3": "abode",
+      "pronounceForm1": "[ə'baɪd]",
+      "pronounceForm2": "[ə'bəud]",
+      "pronounceForm3": "[ə'bəud]",
+      "example1": "I can't abide dishonesty!",
+      "example2": "Did he abode the laws of our Kingdom?",
+      "example3": "He has been abode in a small Scottish village.",
+      "languages": {
+        "ru": {
+          "form1": "Придерживаться, соблюдать, хранить, ожидать, обитать",
+          "form2": "Придерживался, хранил, соблюдал",
+          "form3": "Сдержал, сохранил, обитал",
+          "example1": "Я не сношу бесчестья!",
+          "example2": "Придерживался ли он законов нашего королевства?",
+          "example3": "Он обитал в небольшой Шотландской деревушке."
+        },
+        "ua": {
+          "form1": "Будувати",
+          "form2": "Збудував",
+          "form3": "Побудував",
+          "example1": "Почнемо будувати космічний корабель!",
+          "example2": "Ми збудували космічний корабель.",
+          "example3": "Космічний корабель було побудовано."
+        }
+      }
+    }
+
+
+  ]
+}
