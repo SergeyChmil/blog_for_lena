@@ -1,0 +1,18 @@
+<div class="card my-card">
+  <img class="rounded card-img-top" [attr.src]="_data.imagesPathKey + '' + _images[0].path" [attr.alt]="_data.imagesPathKey + '' + _images[0].path"
+    *ngIf="state==='active' && _images[0].path !== '' "/>
+  <div class="horizontal-divider" *ngIf="state==='active' && _images[0].path !== '' "></div>
+  <div class="card-block">
+    <h4 class="card-title">{{_data.header}}</h4>
+    <p class="card-text" *ngIf="state==='active'">{{_data.body}}</p>
+    <p class="card-text" *ngIf="state==='inactive'">{{_data.shortBody}}</p>
+    <button type="button" class="btn btn-link link-pointer" *ngIf="state==='inactive'">{{_ctaBtnText}}</button>
+    <div class="row justify-content-end" *ngIf="state==='active'">
+      <button type="button" class="btn btn-link link-pointer">Читать </button>
+      <button type="button" class="btn btn-link link-pointer">Комментировать</button>
+    </div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">{{_data.date}}</small>
+  </div>
+</div>

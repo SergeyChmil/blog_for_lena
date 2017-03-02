@@ -6,10 +6,13 @@ import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import {NotesService} from "./notes.service";
+import { NoteComponent } from './note/note.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +20,7 @@ import { AppComponent } from './app.component';
     NgbModule.forRoot(),
     HttpModule
   ],
-  providers: [],
+  providers: [NotesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
