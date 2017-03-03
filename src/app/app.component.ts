@@ -1,23 +1,25 @@
-import {Component, OnInit, animate, transition, style, trigger, state} from '@angular/core';
+import {Component, OnInit, animate, transition, style, trigger, state, ViewChild} from '@angular/core';
 import {NotesService} from "./notes.service";
 import {NoteData} from "./note-data";
 import {NoteComponent} from "./note/note.component";
 import {INote} from "./inote";
+import {WindowRefService} from "./window.service";
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    trigger('noteState', [
+    trigger('noteExpand', [
       state('inactive', style({
         width: '23.5%'
       })),
       state('active', style({
         width: '100%'
       })),
-      transition('inactive => active', animate('200ms ease-in')),
-      transition('active => inactive', animate('200ms ease-out'))
+      transition('inactive => active', animate('150ms ease-in')),
+      transition('active => inactive', animate('150ms ease-out'))
     ])
   ]
 })
@@ -26,8 +28,10 @@ export class AppComponent implements OnInit {
   private _rawData: INote[];
   private _notes: NoteData[] = [];
 
-  constructor(private _notesService: NotesService) {
+  private _window: Window;
 
+  constructor(private _notesService: NotesService,  private  windowRef: WindowRefService, ) {
+    this._window = windowRef.nativeWindow;
   }
 
   ngOnInit() {
@@ -52,10 +56,18 @@ export class AppComponent implements OnInit {
   }
 
   toggleNotes(pNote: NoteData) {
-    console.log(pNote)
+    // console.log(pNote)
     for (var key in this._notes) {
       var note: NoteData = this._notes[key];
       note.react(pNote.id)
+    }
+  }
+
+  focusOnNote(event, pId:any){
+
+    if(event.toState==="active"){
+      let element = document.getElementById('note' + pId);
+      this._window.scrollTo(0, element.offsetTop);
     }
   }
 

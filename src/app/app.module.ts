@@ -8,11 +8,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import {NotesService} from "./notes.service";
 import { NoteComponent } from './note/note.component';
+import {WindowRefService} from "./window.service";
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoteComponent
+    NoteComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { NoteComponent } from './note/note.component';
     NgbModule.forRoot(),
     HttpModule
   ],
-  providers: [NotesService],
+  providers: [NotesService, WindowRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

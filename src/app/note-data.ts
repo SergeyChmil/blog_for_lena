@@ -20,7 +20,7 @@ export class NoteData implements INote, OnInit {
   react(pId: number) {
     if (pId === this.id) {
       this.emitter.emit('true');
-      console.log('event ')
+      // console.log('event ')
     } else {
       this.emitter.emit('false');
     }

@@ -1,8 +1,8 @@
-<div class="card my-card">
+<div class="card my-card" [attr.id] = "'note' + _data.id">
   <img class="rounded card-img-top" [attr.src]="_data.imagesPathKey + '' + _images[0].path" [attr.alt]="_data.imagesPathKey + '' + _images[0].path"
     *ngIf="state==='active' && _images[0].path !== '' "/>
   <div class="horizontal-divider" *ngIf="state==='active' && _images[0].path !== '' "></div>
-  <div class="card-block">
+  <div class="card-block" >
     <h4 class="card-title">{{_data.header}}</h4>
     <p class="card-text" *ngIf="state==='active'">{{_data.body}}</p>
     <p class="card-text" *ngIf="state==='inactive'">{{_data.shortBody}}</p>
