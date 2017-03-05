@@ -14,7 +14,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
 
   private _images: IImage[] = [];
   public state: string = "inactive";
-  order:number = 0;
+  order: number = 0;
   private _ctaBtnText: string = "Читать далее";
 
   constructor(private _ngZone: NgZone,) {
@@ -22,7 +22,7 @@ export class NoteComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.createImages();
-    this.order = this._data.id +1;
+    this.order = this._data.id + 1;
   }
 
   ngAfterViewInit() {
@@ -33,11 +33,11 @@ export class NoteComponent implements OnInit, AfterViewInit {
   }
 
   private createImages() {
-    for (var i: number = 0; i < this._data.images.length; i++) {
-      let image: IImage = this._data.images[i];
-      this._images.push(image);
+      for (var i: number = 0; i < this._data.images.length; i++) {
+        let image: IImage = this._data.images[i];
+        this._images.push(image);
 
-    }
+      }
   }
 
   toggleState(pSignal: string) {

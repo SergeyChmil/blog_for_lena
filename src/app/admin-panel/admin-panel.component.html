@@ -1,42 +1,41 @@
-
 <template ngbModalContainer #content let-c="close" let-d="dismiss" class="my-modal">
   <div class="container">
-  <div class="modal-header">
-    <h4 class="modal-title">Новая заметка? :)</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
+    <div class="modal-header">
+      <h4 class="modal-title">Новая заметка? :)</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
 
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Название</label>
-      <div class="col-10">
-        <input class="form-control" type="text" placeholder="Приключение" id="example-text-input" required>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Название</label>
+        <div class="col-10">
+          <input #noteHeader class="form-control" type="text" placeholder="Приключение" id="example-text-input"
+                 required>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="exampleTextarea">Заметка</label>
-      <textarea class="form-control" id="exampleTextarea" rows="8" required></textarea>
-    </div>
+      <div class="form-group">
+        <label for="exampleTextarea">Заметка</label>
+        <textarea #noteBody class="form-control" id="exampleTextarea" rows="8" required></textarea>
+      </div>
 
-    <div class="form-group">
-      <label for="exampleInputFile">Загрузить фото</label>
-      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      <small id="fileHelp" class="form-text text-muted">Пока можно загружать не больше одной картинки :( </small>
-    </div>
+      <div class="form-group">
+        <label for="exampleInputFile">Загрузить фото</label>
+        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+        <small id="fileHelp" class="form-text text-muted">Пока можно загружать не больше одной картинки :(</small>
+      </div>
 
+    </div>
+    <div class="modal-footer">
+      <input type="submit" class="btn btn-success" (click)="createNote(noteBody.value, noteHeader.value);c('Close click')"/>
+      <button type="button" class="btn btn-danger" (click)="c('Close click')">Закрыть</button>
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-success" >Опубликовать</button>
-    <button type="button" class="btn btn-danger" (click)="c('Close click')">Закрыть</button>
-  </div></div>
 </template>
 
 
-
-
 <li class="nav-item" (click)="open(content)">
-  <a class="nav-link" >Админ </a>
+  <a class="nav-link">Админ </a>
 </li>

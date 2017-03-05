@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center" id="notes-container">
+    <app-note #cardView *ngFor="let note of _notes" [_data]="note"
+              [@noteExpand]="cardView.state"
+              (@noteExpand.start)="focusOnNote($event, cardView._data.id)"
+              (@noteExpand.done)="focusOnNote($event, cardView._data.id)"
+              (click)="toggleNotes(note)"
+              [style.order]="cardView.order"></app-note>
+  </div>
+</div>
+
+
+<!----
+
+[@noteExpand]="cardView.state"
+              (@noteExpand.start)="focusOnNote($event, cardView._data.id)"
+              (@noteExpand.done)="focusOnNote($event, cardView._data.id)"
+
+
+---->

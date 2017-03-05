@@ -10,12 +10,14 @@ import {NotesService} from "./notes.service";
 import { NoteComponent } from './note/note.component';
 import {WindowRefService} from "./window.service";
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { NotesDashboardComponent } from './notes-dashboard/notes-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NoteComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    NotesDashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -31,17 +31,22 @@ export class NoteData implements INote, OnInit {
   }
 
   private createShortText() {
-    var rawShortString: string = this.body.substr(0, 299);
-    var spaces: number = rawShortString.split(" ").length - 1;
-    var finishIndex: number = rawShortString.lastIndexOf(' ');
+    if (this.body.length > 299) {
+      var rawShortString: string = this.body.substr(0, 299);
+      var spaces: number = rawShortString.split(" ").length - 1;
+      var finishIndex: number = rawShortString.lastIndexOf(' ');
 
-    var finalText = (rawShortString.substr(0, finishIndex));
-    var newSymbolsInTheEndOfText: string = '...';
-    if (finalText.charAt(finalText.length - 1) === '.') {
-      newSymbolsInTheEndOfText = '..'
+      var finalText = (rawShortString.substr(0, finishIndex));
+      var newSymbolsInTheEndOfText: string = '...';
+      if (finalText.charAt(finalText.length - 1) === '.') {
+        newSymbolsInTheEndOfText = '..'
+      }
+
+      this.shortBody = finalText.concat(newSymbolsInTheEndOfText);
+    }else{
+      this.shortBody = this.body;
     }
 
-    this.shortBody = finalText.concat(newSymbolsInTheEndOfText);
   }
 
   /***
@@ -72,7 +77,7 @@ export class NoteData implements INote, OnInit {
     return this.inputData.images;
   }
 
-  get imagesPathKey(): string{
+  get imagesPathKey(): string {
     return this.inputData.imagesPathKey;
   }
 
