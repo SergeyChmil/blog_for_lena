@@ -2,13 +2,6 @@ import {INote, IImage} from "./inote";
 import {OnInit, EventEmitter} from "@angular/core";
 
 export class NoteData implements INote, OnInit {
-  // id:number;
-  // header:string;
-  // icon:string;
-  // date:string;
-  // body:string;
-  // shortBody:string;
-  // images:IImage[];
 
   public emitter: EventEmitter<string>;
 
@@ -20,15 +13,12 @@ export class NoteData implements INote, OnInit {
   react(pId: number) {
     if (pId === this.id) {
       this.emitter.emit('true');
-      // console.log('event ')
     } else {
       this.emitter.emit('false');
     }
   }
 
-  ngOnInit() {
-    // this.createShortText();
-  }
+  ngOnInit() { }
 
   private createShortText() {
     if (this.body.length > 299) {
@@ -56,6 +46,9 @@ export class NoteData implements INote, OnInit {
   get id(): number {
     return this.inputData.id;
   }
+  get article(): string {
+    return this.inputData.article;
+  }
 
   get header(): string {
     return this.inputData.header;
@@ -75,10 +68,6 @@ export class NoteData implements INote, OnInit {
 
   get images(): IImage[] {
     return this.inputData.images;
-  }
-
-  get imagesPathKey(): string {
-    return this.inputData.imagesPathKey;
   }
 
   get shortBody(): string {

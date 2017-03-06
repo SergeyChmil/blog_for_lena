@@ -2,38 +2,28 @@ import { Injectable } from '@angular/core';
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
 import {NoteData} from "./note-data";
+import {INote} from "./inote";
+import {Links} from "./links";
+import {link} from "fs";
+
 
 @Injectable()
 export class NotesService {
 
-  private _localDataURL:string;
-  imagesURL: string;
-  private _localDomainURL: string;
+  constructor(private http:Http, private links:Links) {
 
-  constructor(private http:Http) {
-    this._localDataURL = "http://localhost:3000/notes";
-    this._localDomainURL = "http://localhost:4200";
-    this.imagesURL = "src/imgs/notes_illustrations/";
   }
 
   getNotesApi():Observable<NoteData[]>{
-    return this.http.get(this._localDataURL)
+    return this.http.get(this.links.localDataURL)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || "NotesService said: server error, getNotesApi"));
   }
 
-  createStock(newNoteBody: string, newNoteHeader: string): Observable<any> {
-
-    var imageDummy:Object[] = [{
-      "path": "",
-      "text": "",
-      "alt_text": ""
-    }];
-
-
-
-
-    return this.http.post(this._localDataURL, {header: newNoteHeader, body: newNoteBody, images: imageDummy})
+  createStock(newNote:INote): Observable<any> {
+    console.log(newNote)
+    return this.http.post(this.links.localDataURL, {header: newNote.header, body: newNote.body, images: newNote.images,
+      article: newNote.article})
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || "getStocksAPI says: error"));
   };

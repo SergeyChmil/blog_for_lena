@@ -15,13 +15,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav navbar-nav navbar-right">
           <!--------  DRY !!!! --------------->
-          <li class="nav-item" [class.active]="firstButton.value === currentList" (click)="onSelect(firstButton.value)">
+          <li class="nav-item" [class.active]="firstButton.text === currentList" (click)="onSelect(firstButton.text)">
             <a #firstButton class="nav-link" href="#">Китай</a>
           </li>
-          <li class="nav-item" [class.active]="secondButton.value === currentList" (click)="onSelect(secondButton.value)">
+          <li class="nav-item" [class.active]="secondButton.text === currentList" (click)="onSelect(secondButton.text)">
             <a #secondButton class="nav-link"  href="#">не Китай</a>
           </li>
-          <app-admin-panel ></app-admin-panel>
+          <app-admin-panel [menuButtons]="menuButtons"></app-admin-panel>
         </ul>
       </div>
     </nav>
@@ -30,7 +30,7 @@
       CONTENT change to router outlet later
     ----->
 
-    <app-notes-dashboard  [currentList]="currentList" ></app-notes-dashboard>
+    <app-notes-dashboard [currentList]="currentList" [parentSubject]="parentSubject"></app-notes-dashboard>
 
     <!----
       FOOTER

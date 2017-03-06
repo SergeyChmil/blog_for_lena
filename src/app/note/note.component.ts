@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, NgZone} from '@angular/core';
 import {NoteData} from "../note-data";
 import {IImage} from "../inote";
+import {Links} from "../links";
 
 @Component({
   selector: 'app-note',
@@ -10,19 +11,19 @@ import {IImage} from "../inote";
 export class NoteComponent implements OnInit, AfterViewInit {
 
   @Input() private _data: NoteData;
-  // @ViewChild('cardo') el: ElementRef;
+  @Input() private _currentList: string;
 
   private _images: IImage[] = [];
   public state: string = "inactive";
-  order: number = 0;
+  public zOrder: number;
   private _ctaBtnText: string = "Читать далее";
 
-  constructor(private _ngZone: NgZone,) {
+  constructor(private _ngZone: NgZone, private _links:Links) {
   }
 
   ngOnInit() {
+    this.zOrder =  this._data.id + 1;
     this.createImages();
-    this.order = this._data.id + 1;
   }
 
   ngAfterViewInit() {
@@ -32,27 +33,21 @@ export class NoteComponent implements OnInit, AfterViewInit {
     );
   }
 
-  private createImages() {
+  createImages() {
       for (var i: number = 0; i < this._data.images.length; i++) {
         let image: IImage = this._data.images[i];
         this._images.push(image);
-
       }
   }
 
   toggleState(pSignal: string) {
-
     if (this.state === 'inactive' && pSignal === 'true') {
-
-      this.order = 0;
+      this.zOrder = 0;
       this.state = 'active';
-
-      // console.log('toggleState true2')
-    } else if (this.state === 'active' && pSignal === 'false') {
-      this.order = this._data.id + 1;
+    }
+    else if (this.state === 'active' && pSignal === 'false') {
+      this.zOrder = this._data.id + 1;
       this.state = 'inactive';
-
-      // console.log('toggleState false')
     }
   }
 

@@ -11,6 +11,7 @@ import { NoteComponent } from './note/note.component';
 import {WindowRefService} from "./window.service";
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { NotesDashboardComponent } from './notes-dashboard/notes-dashboard.component';
+import {Links} from "./links";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { NotesDashboardComponent } from './notes-dashboard/notes-dashboard.compo
     NgbModule.forRoot(),
     HttpModule
   ],
-  providers: [NotesService, WindowRefService],
+  providers: [NotesService, WindowRefService, Links],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

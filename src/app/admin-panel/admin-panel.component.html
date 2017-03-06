@@ -22,6 +22,16 @@
       </div>
 
       <div class="form-group">
+        <label for="exampleSelect1">Example select</label>
+        <select #noteArticle class="form-control" id="exampleSelect1">
+          <option *ngFor="let key of menuButtons"
+                  [attr.selected]="menuButtons.indexOf(key)===0 ? true : null">
+            {{menuButtons[menuButtons.indexOf(key)]}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="exampleInputFile">Загрузить фото</label>
         <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
         <small id="fileHelp" class="form-text text-muted">Пока можно загружать не больше одной картинки :(</small>
@@ -29,7 +39,12 @@
 
     </div>
     <div class="modal-footer">
-      <input type="submit" class="btn btn-success" (click)="createNote(noteBody.value, noteHeader.value);c('Close click')"/>
+      <input type="submit" class="btn btn-success" (click)="createNote(
+            noteBody.value,
+            noteHeader.value,
+            noteArticle.options[noteArticle.selectedIndex].text);
+
+            c('Close click')"/>
       <button type="button" class="btn btn-danger" (click)="c('Close click')">Закрыть</button>
     </div>
   </div>
