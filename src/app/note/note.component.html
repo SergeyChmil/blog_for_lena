@@ -1,5 +1,6 @@
+<div class="wrapper">
 <div class="card my-card" [attr.id] = "'note' + _data.id">
-  <img class="rounded card-img-top" [attr.src]="_data.imagesPathKey + '' + _images[0].path" [attr.alt]="_data.imagesPathKey + '' + _images[0].path"
+  <img class="rounded card-img-top" [attr.src]="_links.imagesURL + '' + _images[0].path" [attr.alt]="_links.imagesURL + '' + _images[0].path"
     *ngIf="state==='active' && _images[0].path !== '' "/>
   <div class="horizontal-divider" *ngIf="state==='active' && _images[0].path !== '' "></div>
   <div class="card-block" >
@@ -15,4 +16,5 @@
   <div class="card-footer">
     <small class="text-muted">{{_data.date}}</small>
   </div>
+</div>
 </div>

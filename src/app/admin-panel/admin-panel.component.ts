@@ -1,6 +1,8 @@
-import {Component, OnInit, ViewEncapsulation, Inject, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Inject, EventEmitter, Input} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {NotesService} from "../notes.service";
+import {NoteData} from "../note-data";
+import {INote} from "../inote";
 
 @Component({
   selector: 'app-admin-panel',
@@ -10,17 +12,40 @@ import {NotesService} from "../notes.service";
 })
 export class AdminPanelComponent {
 
-  constructor( private modalService: NgbModal, private noteService:NotesService) { }
+  @Input() menuButtons:string[];
 
-  open(content){
-    this.modalService.open(content, { windowClass: 'dark-modal' });
+  constructor(private modalService: NgbModal, private noteService: NotesService) {
   }
 
-  createNote(newNoteBody:string, newNoteHeader:string){
-    this.noteService.createStock(newNoteBody,newNoteHeader).subscribe(
-      data => { },
-      error => console.log('sdvdfvdbgrgb 1111111111111')
-    );
+  open(content) {
+    this.modalService.open(content, {windowClass: 'dark-modal'});
+  }
+
+  createNote(newNoteBody: string, newNoteHeader: string, newNoteArticle:string) {
+    var newNote: INote = {
+      id: null,
+      article: newNoteArticle,
+      icon: "",
+      header: newNoteHeader,
+      date: "",
+      body: newNoteBody,
+      shortBody: "",
+      images: [{
+        path: "",
+        text: "",
+        alt_text: ""
+      }],
+      react(id){  }
+    };
+
+    if(newNoteBody !== "" || newNoteHeader !== ""){
+      this.noteService.createStock(newNote).subscribe(
+        data => { },
+        error => console.log('AdminPanel said: Error loading new note')
+      );
+    }
+
+
   }
 
 }

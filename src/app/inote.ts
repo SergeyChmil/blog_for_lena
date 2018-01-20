@@ -2,6 +2,7 @@ import {Observable} from "rxjs";
 
 export interface INote {
   id:number;
+  article:string;
   header:string;
   icon:string;
   date:string;
@@ -9,7 +10,7 @@ export interface INote {
   shortBody:string;
   images:IImage[];
 
-  imagesPathKey:string;
+  // imagesPathKey:string;
 
   react(id:number)
 }

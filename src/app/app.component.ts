@@ -1,4 +1,5 @@
 import {Component, OnInit, Output} from '@angular/core';
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,18 @@ import {Component, OnInit, Output} from '@angular/core';
 
 })
 export class AppComponent implements OnInit {
-  private currentList:string = 'Китай';
+
+  private menuButtons:string[] = ['Китай', "не Китай"];
+  private currentList:string = this.menuButtons[0];
+  parentSubject:Subject<any> = new Subject();
 
   constructor( ) {}
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  onSelect(newList:string){
+  onSelect(newList:any){
     this.currentList = newList;
+    this.parentSubject.next(newList);
   }
 
 }
