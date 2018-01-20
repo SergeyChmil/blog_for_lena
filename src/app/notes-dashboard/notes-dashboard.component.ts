@@ -24,6 +24,7 @@ import {WindowRefService} from "../window.service";
 export class NotesDashboardComponent implements OnInit {
 
   private _rawData: INote[];
+  private _rawData2: number = 23;
   private _notes: NoteData[] = [];
   private _window: Window;
   @Input() currentList:string;

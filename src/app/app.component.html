@@ -15,10 +15,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav navbar-nav navbar-right">
           <!--------  DRY !!!! --------------->
-          <li class="nav-item" [class.active]="firstButton.value === currentList" (click)="onSelect(firstButton.value)">
+          <li class="nav-item">
             <a #firstButton class="nav-link" href="#">Китай</a>
           </li>
-          <li class="nav-item" [class.active]="secondButton.value === currentList" (click)="onSelect(secondButton.value)">
+          <li class="nav-item">
             <a #secondButton class="nav-link"  href="#">не Китай</a>
           </li>
           <app-admin-panel ></app-admin-panel>
